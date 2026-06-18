@@ -26,7 +26,7 @@ export default function FallingLeaves() {
       });
 
       // Create a falling timeline for each leaf
-      const tl = gsap.timeline({ repeat: -1, delay: () => Math.random() * 10 });
+      const tl = gsap.timeline({ repeat: -1, delay:  Math.random() * 10 });
 
       tl.to(leaf, {
         y: window.innerHeight + 100,
