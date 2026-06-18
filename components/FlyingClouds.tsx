@@ -23,7 +23,7 @@ export default function FlyingClouds() {
       });
 
       // Create a slowly drifting timeline
-      const tl = gsap.timeline({ repeat: -1, delay: () => Math.random() * 15 });
+      const tl = gsap.timeline({ repeat: -1, delay:  Math.random() * 15 });
 
       tl.to(cloud, {
         x: -800, // drift far past the left edge
