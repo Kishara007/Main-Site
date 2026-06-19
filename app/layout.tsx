@@ -30,6 +30,8 @@ export const metadata: Metadata = {
   },
 };
 
+import Preloader from "@/components/Preloader";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,7 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${spaceGrotesk.className} min-h-screen bg-white text-[#171717] overflow-x-hidden`}>
-        <SmoothScroll>{children}</SmoothScroll>
+        <Preloader />
+        <main id="main-content">
+          <SmoothScroll>{children}</SmoothScroll>
+        </main>
       </body>
     </html>
   );
