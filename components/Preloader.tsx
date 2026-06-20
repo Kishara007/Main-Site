@@ -47,9 +47,6 @@ export default function Preloader() {
       }
     });
 
-    // Initially hide main content to fade it in later
-    gsap.set("#main-content", { opacity: 0, y: 30 });
-
     // Simulate loading progress to 90%
     tl.to(progressObj, {
       value: 90,
@@ -94,14 +91,7 @@ export default function Preloader() {
           preloaderRef.current.style.display = "none";
         }
       }
-    }, "-=0.2")
-    .to("#main-content", {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power3.out",
-      clearProps: "all"
-    }, "-=0.8");
+    }, "-=0.2");
 
     return () => {
       window.removeEventListener("load", onLoad);
@@ -114,13 +104,14 @@ export default function Preloader() {
   return (
     <div
       ref={preloaderRef}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white text-[#171717]"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white/95 backdrop-blur-sm text-[#171717]"
     >
       <div ref={logoRef} className="mb-6 relative w-20 h-20 md:w-24 md:h-24">
         <Image
           src="/images/icon.png"
           alt="Loading Logo"
           fill
+          sizes="(max-width: 768px) 80px, 96px"
           className="object-contain"
           priority
         />

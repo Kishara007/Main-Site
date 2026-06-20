@@ -14,9 +14,12 @@ import Pricing from "@/components/sections/Pricing";
 import Footer from "@/components/sections/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Clouds from "@/components/Clouds";
-import GlobalBird from "@/components/GlobalBird";
 import GlobalScrollArrow from "@/components/GlobalScrollArrow";
 import GlobalNavBar from "@/components/GlobalNavBar";
+import dynamic from "next/dynamic";
+
+// Asynchronously load the heavy 3D canvas so it doesn't block the initial HTML render and LCP
+const GlobalBird = dynamic(() => import("@/components/GlobalBird"), { ssr: false });
 // so they can trigger their entrance animations based on horizontal position.
 export const ScrollContext = createContext<gsap.core.Tween | null>(null);
 

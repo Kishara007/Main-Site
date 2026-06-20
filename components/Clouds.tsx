@@ -84,7 +84,7 @@ export default function Clouds() {
             fill 
             sizes="(max-width: 1280px) 100vw, 50vw"
             className="object-contain object-top" 
-            priority={cloud.id < 3} // Prioritize loading a few immediately
+            priority
           />
         </div>
       ))}
